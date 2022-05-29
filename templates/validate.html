@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <title>Show Username</title>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center"><u>REAL TIME EMPLOYEE BENIFIT INITIATIVE</u></h2><br>            
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>CERTIFICATION</th>
+          <th>TARGET</th>
+          <th>ACTUAL</th>
+          <th>TIMESTAMP-2hrs</th>
+          <th>DAILY</th>
+          <th>WEEKLY</th>
+          <th>MONTHLY</th>
+        </tr>
+      </thead>
+      <tbody>
+      <!-- jinja2 Technique -->
+      {% if d %}  
+      {% for i in d %}
+        <tr>
+          <td>{{i.Id}}</td>
+          <td>{{i.Name}}</td>
+          <td>{{i.Target}}</td>
+          <td>{{i.Actual}}</td>
+          <td>{{i.Deviation}}</td>
+          <td>{{i.Timestamp}}</td>
+          <td>{{i.Daily}}</td>
+          <td>{{i.Weekly}}</td>
+          <td>{{i.Monthly}}</td>
+          
+        </tr>
+      {% endfor %}
+      {%else%}
+      <h2>DAILY</h2>
+      {%for i in head%}
+      
+        {{i}}<br>
+        {%endfor%}
+        <h2>WEEKLY</h2>
+      {%for i in head1%}
+      
+        {{i}}<br>
+      {%endfor%}
+      <h2>Monthly</h2>
+      {%for i in head2%}
+      
+        {{i}}<br>
+      {%endfor%}
+
+      {% endif %}
+      
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
